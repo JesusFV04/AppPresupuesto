@@ -1,12 +1,12 @@
-package com.example.apppresupuesto.ui
+package com.example.apppresupuesto
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.apppresupuesto.ui.HomeScreen
-import com.example.apppresupuesto.ui.ExpensesScreen
+import com.example.apppresupuesto.HomeScreen
+import com.example.apppresupuesto.ExpensesScreen
 
 @Composable
 fun Navigation() {
