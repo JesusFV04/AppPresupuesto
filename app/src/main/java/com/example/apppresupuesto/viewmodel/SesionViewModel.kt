@@ -18,9 +18,9 @@ class SesionViewModel(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
-    fun login(email: String, contraseña: String) {
+    fun login(email: String, contrasena: String) {
         viewModelScope.launch {
-            val usuario = usuarioRepository.login(email, contraseña)
+            val usuario = usuarioRepository.login(email, contrasena)
             if (usuario != null) {
                 _usuarioActual.value = usuario
                 _error.value = null
@@ -30,9 +30,9 @@ class SesionViewModel(
         }
     }
 
-    fun registrar(email: String, contraseña: String) {
+    fun registrar(email: String, contrasena: String) {
         viewModelScope.launch {
-            val nuevoUsuario = Usuario(email = email, contraseña = contraseña)
+            val nuevoUsuario = Usuario(email = email, contrasena = contrasena)
             val id = usuarioRepository.insertar(nuevoUsuario)
             _usuarioActual.value = nuevoUsuario.copy(id = id.toInt())
             _error.value = null
