@@ -9,8 +9,8 @@ class UsuarioRepository(private val usuarioDao: UsuarioDao) {
         return usuarioDao.insertar(usuario)
     }
 
-    suspend fun login(email: String, contraseña: String): Usuario? {
-        return usuarioDao.login(email, contraseña)
+    suspend fun login(email: String, contrasena: String): Usuario? {
+        return usuarioDao.login(email, contrasena)
     }
 
     suspend fun obtenerPorId(id: Int): Usuario? {

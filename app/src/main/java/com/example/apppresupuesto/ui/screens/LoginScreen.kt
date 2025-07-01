@@ -8,7 +8,6 @@ import androidx.compose.ui.*
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.unit.dp
 import com.example.apppresupuesto.viewmodel.SesionViewModel
-import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun LoginScreen(
@@ -16,7 +15,7 @@ fun LoginScreen(
     onLoginSuccess: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
-    var contraseña by remember { mutableStateOf("") }
+    var contrasena by remember { mutableStateOf("") }
     var esRegistro by remember { mutableStateOf(false) }
 
     val error by sesionViewModel.error.collectAsState()
@@ -53,8 +52,8 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = contraseña,
-            onValueChange = { contraseña = it },
+            value = contrasena,
+            onValueChange = { contrasena = it },
             label = { Text("Contraseña") },
             modifier = Modifier.fillMaxWidth(),
             visualTransformation = PasswordVisualTransformation(),
@@ -66,9 +65,9 @@ fun LoginScreen(
         Button(
             onClick = {
                 if (esRegistro) {
-                    sesionViewModel.registrar(email, contraseña)
+                    sesionViewModel.registrar(email, contrasena)
                 } else {
-                    sesionViewModel.login(email, contraseña)
+                    sesionViewModel.login(email, contrasena)
                 }
             },
             modifier = Modifier.fillMaxWidth()
